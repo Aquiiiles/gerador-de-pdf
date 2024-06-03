@@ -1,8 +1,12 @@
 from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
 
-pdf = canvas.Canvas('./exemplo.pdf')
+def mm_to_p(mm):
+    return mm/ 0.352777
 
-pdf.drawString(0, 0, 'Hello world')
+pdf = canvas.Canvas('./exemplo.pdf', pagesize=A4)
+
+pdf.setFont('Helvetica-Oblique',14)
+pdf.drawString(mm_to_p(20), mm_to_p(50), 'Hello world, welcome to my new project')
 
 pdf.save()
-
